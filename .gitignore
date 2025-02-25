@@ -1,0 +1,12 @@
+# Ignore xlsx, csv, and pdf files
+*.xlsx
+*.csv
+*.pdf
+*.json
+
+# Ignore all files in the output directory
+/logs/*
+
+# Ignore pycache
+__pycache__/* 
+*.pyc

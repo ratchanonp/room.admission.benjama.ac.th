@@ -1,6 +1,7 @@
 class ExamRoomConfig:
     # File and sheet name constants
     EXCEL_INPUT_FILE = "ApplicantNamelist.xlsx"
+    EXCEL_SCHOOL_NAME_MAPPING_FILE = "schoolname.csv"
     SHEET_NAME = "Merge"
     
     # Program ID prefixes
@@ -164,9 +165,10 @@ class ExamRoomConfig:
     
     # Output file names
     DEFAULT_EXCEL_OUTPUT = "exam_room_assignments.xlsx"
+    DEFAULT_CHECKPOINT_FILE = "exam_room_checkpoint.csv"
     PDF_OUTPUT_TEMPLATE = "pdf/exam_room_{}.pdf"
     
     # Academic year and other constants
     ACADEMIC_YEAR = "2568"  # Thai year for 2024
     M1_EXAM_DATE = "15 มีนาคม 2568"
-    M4_EXAM_DATE = "1 มีนาคม 2568" 
+    M4_EXAM_DATE = "16 มีนาคม 2568" 

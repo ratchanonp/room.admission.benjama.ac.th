@@ -17,3 +17,18 @@ class Firebase:
                 logger.error(f"Error setting exam room data: {str(e)}")
                 return False
         return True
+    
+    def set_new_school_data(self, new_school_data: list):
+        for data in new_school_data:
+            try:
+                self.db.collection("forms").document(data["thaiID"]).set({
+                    "education": {
+                        "currentSchool": data["newSchool"]
+                    }
+                }, merge=True)
+
+                logger.info(f"New school data set for {data['thaiID']}")
+            except Exception as e:
+                logger.error(f"Error setting new school data: {str(e)}")
+                return False
+        return True

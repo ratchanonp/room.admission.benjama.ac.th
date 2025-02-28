@@ -30,6 +30,33 @@ def parse_arguments():
         help=f'Path to the output Excel file (default: {ExamRoomConfig.DEFAULT_EXCEL_OUTPUT})'
     )
     
+    # Checkpoint file parameter
+    parser.add_argument(
+        '--checkpoint-file', 
+        type=str, 
+        default=ExamRoomConfig.DEFAULT_CHECKPOINT_FILE,
+        help=f'Path to a CSV file to store/load checkpoint data (default: {ExamRoomConfig.DEFAULT_CHECKPOINT_FILE})'
+    )
+    
+    # Firebase control parameters
+    parser.add_argument(
+        '--no-firebase',
+        action='store_true',
+        help='Disable all Firebase operations'
+    )
+    
+    parser.add_argument(
+        '--no-firebase-exam',
+        action='store_true',
+        help='Disable writing exam room data to Firebase'
+    )
+    
+    parser.add_argument(
+        '--no-firebase-school',
+        action='store_true',
+        help='Disable writing school data to Firebase'
+    )
+    
     return parser.parse_args()
 
 def main():
@@ -42,7 +69,11 @@ def main():
         app = ExamRoomApplication(
             input_file=args.input_file,
             sheet_name=args.sheet_name,
-            output_excel=args.output_excel
+            output_excel=args.output_excel,
+            use_firebase=not args.no_firebase,
+            use_firebase_exam=not args.no_firebase_exam,
+            use_firebase_school=not args.no_firebase_school,
+            checkpoint_file=args.checkpoint_file
         )
         
         # Run the application

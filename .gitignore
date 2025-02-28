@@ -3,6 +3,7 @@
 *.csv
 *.pdf
 *.json
+*.bak
 
 # Ignore all files in the output directory
 /logs/*
